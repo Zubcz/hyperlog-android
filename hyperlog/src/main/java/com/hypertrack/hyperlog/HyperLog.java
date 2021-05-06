@@ -55,7 +55,7 @@ public class HyperLog {
 
     private static DeviceLogList mDeviceLogList;
     private static String URL;
-    private static final int EXPIRY_TIME = 7 * 24 * 60 * 60;// 7 Days
+    private static int EXPIRY_TIME = 7 * 24 * 60 * 60;// 7 Days
     private static LogFormat mLogFormat;
     private static Context context;
     private static ExecutorService executorService;
@@ -107,6 +107,8 @@ public class HyperLog {
      */
     public static void initialize(Context context, int expiryTimeInSeconds,
                                   LogFormat logFormat) {
+
+        EXPIRY_TIME = expiryTimeInSeconds;
 
         if (context == null) {
             Log.e(TAG, "HyperLog isn't initialized: Context couldn't be null");
@@ -171,10 +173,19 @@ public class HyperLog {
     }
 
     /**
-     * Call this method to get a expiry time of logs. Expiry Time is in seconds.
+     * Call this method to get an expiry time of logs. Expiry Time is in seconds.
      */
     public static long getExpiryTime() {
         return EXPIRY_TIME;
+    }
+
+    /**
+     * Call this method to set an expiry time of logs. Expiry Time is in seconds.
+     *
+     * @param expiryTimeInSeconds Expiry time for logs in seconds.
+     */
+    public static void getSetTime(int expiryTimeInSeconds) {
+        EXPIRY_TIME = expiryTimeInSeconds;
     }
 
     /**
