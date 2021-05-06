@@ -25,7 +25,6 @@ SOFTWARE.
 package com.hypertrack.hyperlog;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -68,7 +67,7 @@ public class HyperLog {
      * @param context The current context.
      * @see #initialize(Context, int, LogFormat)
      */
-    public static void initialize(@NonNull Context context) {
+    public static void initialize(Context context) {
         initialize(context, EXPIRY_TIME, new LogFormat(context));
     }
 
@@ -80,7 +79,7 @@ public class HyperLog {
      * @param logFormat {@link LogFormat} to set custom log message format.
      * @see #initialize(Context, int, LogFormat)
      */
-    public static void initialize(@NonNull Context context, @NonNull LogFormat logFormat) {
+    public static void initialize(Context context, LogFormat logFormat) {
         initialize(context, EXPIRY_TIME, logFormat);
     }
 
@@ -92,7 +91,7 @@ public class HyperLog {
      * @param expiryTimeInSeconds Expiry time for logs in seconds.
      * @see #initialize(Context, int, LogFormat)
      */
-    public static void initialize(@NonNull Context context, int expiryTimeInSeconds) {
+    public static void initialize(Context context, int expiryTimeInSeconds) {
         initialize(context, expiryTimeInSeconds, new LogFormat(context));
     }
 
@@ -106,8 +105,8 @@ public class HyperLog {
      * @param logFormat           {@link LogFormat} to set custom log message format.
      * @see #initialize(Context)
      */
-    public static void initialize(@NonNull Context context, int expiryTimeInSeconds,
-                                  @NonNull LogFormat logFormat) {
+    public static void initialize(Context context, int expiryTimeInSeconds,
+                                  LogFormat logFormat) {
 
         if (context == null) {
             Log.e(TAG, "HyperLog isn't initialized: Context couldn't be null");
@@ -137,7 +136,7 @@ public class HyperLog {
      *
      * @param logFormat LogFormat to set custom log message format.
      */
-    public static void setLogFormat(@NonNull LogFormat logFormat) {
+    public static void setLogFormat(LogFormat logFormat) {
         if (mLogFormat != null) {
             mLogFormat = logFormat;
             Utils.saveLogFormat(context, logFormat);
